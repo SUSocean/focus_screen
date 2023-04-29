@@ -5,9 +5,8 @@ import SingleTask from "./SingleTask"
 const TasksList = () => {
     const dispatch = useDispatch()
     const tasks = useSelector(getTasks)
-    console.log(tasks)
     const [input, setInput] = useState('')
-    const renderedTasks = tasks.map(task => <SingleTask task={task} />)
+    const renderedTasks = tasks.map(task => <SingleTask id={task.id} />)
     return (
         <>
             <h2>Tasks List</h2>

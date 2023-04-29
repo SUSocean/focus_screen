@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { nanoid } from "@reduxjs/toolkit";
 const initialState = []
 
 const tasksSlice = createSlice({
@@ -9,7 +9,23 @@ const tasksSlice = createSlice({
         taskAded: (state, action) => {
             state.unshift({
                 task: action.payload,
-                completed: false
+                completed: false,
+                id: nanoid()
+            })
+        },
+        taskToggled: (state, action) => {
+            const id = action.payload
+            state = state.map(task => {
+                if (task.id === id) {
+                    return {
+                        ...task,
+                        completed: !task.completed
+                    }
+                } else {
+                    return {
+                        ...task
+                    }
+                }
             })
         }
     }
@@ -17,6 +33,6 @@ const tasksSlice = createSlice({
 
 export default tasksSlice
 
-export const { taskAded } = tasksSlice.actions
-
+export const { taskAded, taskToggled } = tasksSlice.actions
 export const getTasks = (state) => state.tasks
+export const getTaskById = (state, id) => state.tasks.find(task => task.id === id)
