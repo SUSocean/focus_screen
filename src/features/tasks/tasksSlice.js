@@ -1,5 +1,6 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
+
 const initialState = []
 
 const tasksSlice = createSlice({
@@ -15,19 +16,9 @@ const tasksSlice = createSlice({
         },
         taskToggled: (state, action) => {
             const id = action.payload
-            const newTasks = state.map(task => {
-                if (task.id === id) {
-                    return {
-                        ...task,
-                        completed: !task.completed
-                    }
-                } else {
-                    return {
-                        ...task
-                    }
-                }
-            })
-            state = newTasks
+            const currentTask = state.filter(task => task.id === id)[0]
+            const currentTaskChanged = { ...currentTask, completed: !currentTask.completed }
+            return [...state.filter(task => task.id !== id), currentTaskChanged]
         }
     }
 })

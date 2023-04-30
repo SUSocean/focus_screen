@@ -8,10 +8,10 @@ const SingleTask = ({ id }) => {
     const dispatch = useDispatch()
     const task = useSelector(state => getTaskById(state, id))
 
-
     console.log(task.completed)
+
     return (
-        <div>
+        <div className="single-task-wrapper">
             <label htmlFor={task.id} >
                 {task.completed ?
                     < FontAwesomeIcon icon={faCircleCheck} />
@@ -24,6 +24,3 @@ const SingleTask = ({ id }) => {
 }
 
 export default SingleTask
-
-    // < FontAwesomeIcon icon = { faCircleCheck } />
-    // < FontAwesomeIcon icon = { faCircle } />

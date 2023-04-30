@@ -4,7 +4,9 @@ import TasksList from './features/tasks/TasksList';
 
 function App() {
   return (
-    <TasksList />
+    <main className='main'>
+      <TasksList />
+    </main>
   );
 }
 
