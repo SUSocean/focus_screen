@@ -12,11 +12,7 @@ const TasksList = () => {
     if (tasks.length < 1) {
         content = <p className="focus-info-message">add your focus for today</p>
     } else {
-        content = (
-            <div>
-                {tasks.map(task => <SingleTask id={task.id} />)}
-            </div>
-        )
+        content = tasks.map(task => <SingleTask id={task.id} />)
     }
 
     return (

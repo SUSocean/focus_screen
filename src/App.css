@@ -6,7 +6,7 @@
 }
 
 .focus-wrapper {
-    background-color: lightgrey;
+    background-color: rgba(128, 128, 128, 0.453);
     padding: 20px;
     border-radius: 15px;
     display: flex;
@@ -21,7 +21,8 @@
 
 .task-add-form {
     display: flex;
-    width: 90%;
+    width: 30%;
+    transition: all .3s;
 }
 
 .task-add-form input {
@@ -29,19 +30,32 @@
     height: 25px;
     border-radius: 15px 0 0 15px;
     border: none;
-    z-index: 1;
-    width: 10px;
-    transition: all .3s;
+    width: 70%;
 }
 
-.task-add-form input:hover,
-.task-add-form input:focus {
-    width: 90%;
+.task-add-form:hover,
+.task-add-form :focus {
+    width: 95%;
 }
 
 .task-add-form button {
     background-color: white;
     border-radius: 0 15px 15px 0;
     border: none;
+    width: 30%;
+}
 
+.single-task-wrapper {
+    margin-top: 1rem;
+    background-color: lightgrey;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 25px;
+    padding: 0 10px;
+}
+
+.single-task-wrapper input {
+    display: none;
 }
