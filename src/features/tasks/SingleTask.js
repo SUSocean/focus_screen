@@ -8,10 +8,8 @@ const SingleTask = ({ id }) => {
     const dispatch = useDispatch()
     const task = useSelector(state => getTaskById(state, id))
 
-    const handleClick = () => {
-        dispatch(taskToggled(task.id))
-    }
-    console.log('task', task)
+
+    console.log(task.completed)
     return (
         <div>
             <label htmlFor={task.id} >
@@ -19,7 +17,7 @@ const SingleTask = ({ id }) => {
                     < FontAwesomeIcon icon={faCircleCheck} />
                     : < FontAwesomeIcon icon={faCircle} />}
             </label>
-            <input type="checkbox" id={task.id} name={task.id} checked={task.completed} onChange={handleClick} />
+            <input type="checkbox" id={task.id} name={task.id} checked={task.completed} onChange={() => dispatch(taskToggled(task.id))} />
             <h2>{task.task}</h2>
         </div>
     )

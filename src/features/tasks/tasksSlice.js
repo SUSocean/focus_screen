@@ -15,7 +15,7 @@ const tasksSlice = createSlice({
         },
         taskToggled: (state, action) => {
             const id = action.payload
-            state = state.map(task => {
+            const newTasks = state.map(task => {
                 if (task.id === id) {
                     return {
                         ...task,
@@ -27,6 +27,7 @@ const tasksSlice = createSlice({
                     }
                 }
             })
+            state = newTasks
         }
     }
 })
