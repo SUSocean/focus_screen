@@ -10,12 +10,12 @@ const TasksList = () => {
     const tasks = useSelector(getTasks)
     let content
     if (tasks.length > 0) {
-        content = tasks.map(task => <SingleTask id={task.id} />)
+        content = tasks.map(task => <SingleTask id={task.id} key={task.id} />)
     }
 
     return (
         <div className="focus-wrapper">
-            <TaskForm id={nanoid()} />
+            <TaskForm key={nanoid()} />
             {content}
         </div>
     )
