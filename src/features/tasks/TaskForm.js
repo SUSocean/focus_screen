@@ -21,6 +21,7 @@ const TaskForm = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
+                placeholder="climb a tree"
             />
             <button disabled={!canSubmit}></button>
         </form>
