@@ -6,56 +6,190 @@
 }
 
 .focus-wrapper {
-    background-color: rgba(128, 128, 128, 0.453);
-    padding: 20px;
+    max-width: 600px;
+    overflow-y: scroll;
+    width: 90%;
+    min-height: 400px;
+    max-height: 500px;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 300px;
+    background-color: #f7f5fbb0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.focus-info-message {
-    color: #222;
+.focus-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .task-add-form {
-    display: flex;
-    width: 30%;
-    transition: all .3s;
+    width: 95%;
+    margin-top: 10px;
+    height: 60px;
+    border-radius: 15px;
+    position: relative;
+    margin: 5px auto;
 }
 
 .task-add-form input {
-    margin-left: auto;
-    height: 25px;
-    border-radius: 15px 0 0 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
     border: none;
-    width: 70%;
-}
-
-.task-add-form:hover,
-.task-add-form :focus {
-    width: 95%;
+    background: #E8E2F3;
+    box-shadow: 0px 3px 5px #252c2d79;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.7rem;
+    padding-left: 40px;
 }
 
 .task-add-form button {
-    background-color: white;
-    border-radius: 0 15px 15px 0;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #F7F5FB;
     border: none;
-    width: 30%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.task-add-form button:disabled::before,
+.task-add-form button:disabled::after {
+    cursor: default;
+    background-color: #F7F5FB;
+}
+
+.task-add-form button:disabled {
+    cursor: default;
+}
+
+.task-add-form button:enabled:hover {
+    background-color: white;
+}
+
+.task-add-form button:enabled:hover::before,
+.task-add-form button:enabled:focus::before,
+.task-add-form button:enabled:hover::after,
+.task-add-form button:enabled:focus::after {
+    transform: rotate(90deg);
+}
+
+.task-add-form button::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 44px;
+    top: 2px;
+    background-color: #252C2D;
+    transition: .2s;
+}
+
+.task-add-form button::after {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 1px;
+    right: 2px;
+    background-color: #252C2D;
+    transition: .3s;
+}
+
+.single-task-wrapper:first-of-type {
+    margin-top: 4rem;
 }
 
 .single-task-wrapper {
-    margin-top: 1rem;
-    background-color: lightgrey;
     width: 95%;
+    height: 60px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background: #F7F5FB;
+    margin: .5rem auto;
     display: flex;
     align-items: center;
-    justify-content: start;
-    gap: 25px;
-    padding: 0 10px;
+    position: relative;
+    gap: 80px;
 }
 
-.single-task-wrapper input {
+.single-task-wrapper h2 {
+    font-weight: 400;
+}
+
+.input-wrapper input {
     display: none;
+}
+
+.input-wrapper span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #252C2D;
+    border-radius: 50%;
+}
+
+.input-wrapper input:checked+span::after,
+.input-wrapper input:hover+span::after,
+.input-wrapper input:focus+span::after {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    transform: rotate(45deg);
+    content: '';
+    width: 1px;
+    height: 29px;
+    background: #252C2D;
+}
+
+.input-wrapper input:checked+span::before,
+.input-wrapper input:hover+span::before,
+.input-wrapper input:focus+span::before {
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    transform: rotate(-45deg);
+    content: '';
+    width: 1px;
+    height: 15px;
+    background: #252C2D;
+}
+
+.single-task-wrapper:has(label input:checked) {
+    opacity: .7;
+    background-color: #96EEC3;
+    text-decoration: line-through;
+}
+
+.single-task-deleteBtn {
+    padding: 15px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.single-task-deleteBtn::after {
+    content: '';
+    width: 1px;
+    height: 20px;
+    background: #252C2D;
+    position: absolute;
+    top: 2px;
+    transform: rotate(45deg);
+}
+
+.single-task-deleteBtn::before {
+    content: '';
+    width: 1px;
+    height: 20px;
+    background: #252C2D;
+    position: absolute;
+    top: 2px;
+    transform: rotate(-45deg);
 }

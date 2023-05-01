@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import { useState } from "react"
 import { taskAded } from "./tasksSlice"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const TaskForm = () => {
     const dispatch = useDispatch()
@@ -22,7 +22,7 @@ const TaskForm = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
-            <button disabled={!canSubmit}><FontAwesomeIcon icon={faArrowUpFromBracket} /></button>
+            <button disabled={!canSubmit}></button>
         </form>
     )
 }

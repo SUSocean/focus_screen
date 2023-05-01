@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import TasksList from './features/tasks/TasksList';
-
+import { nanoid } from '@reduxjs/toolkit';
 function App() {
   return (
     <main className='main'>
-      <TasksList />
+      <TasksList key={nanoid()} />
     </main>
   );
 }
