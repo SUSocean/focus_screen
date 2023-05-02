@@ -9,7 +9,5 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    background: center no-repeat url(../public/stock-background.jpg);
-    background-size: cover;
     color: #252C2D;
 }

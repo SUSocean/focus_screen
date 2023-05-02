@@ -5,7 +5,7 @@ export const pickApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: `https://api.unsplash.com/photos/` }),
     endpoints: (builder) => ({
         getPick: builder.query({
-            query: () => 'random?}&query=nature&nt=1&client_id=Aa4kyolAtHfU5RSmI6ttF9F-KYV7JpF4pjX74OwEhHk'
+            query: () => 'random?&query=nature&nt=1&client_id=Aa4kyolAtHfU5RSmI6ttF9F-KYV7JpF4pjX74OwEhHk'
         })
     })
 })

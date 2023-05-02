@@ -5,6 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: center no-repeat;
+    background-color: #252C2D;
+    background-size: cover;
 }
 
 .focus-wrapper {
@@ -200,4 +203,17 @@
     font-weight: bold;
     color: #F7F5FB;
     text-shadow: 0 0 1px #252C2D;
+}
+
+.author {
+    color: #F7F5FB;
+    text-shadow: 0 0 1px #252C2D;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.hidden-clock {
+    opacity: 0;
+    font-size: 6rem;
 }
