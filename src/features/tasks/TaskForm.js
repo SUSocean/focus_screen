@@ -1,9 +1,7 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 import { taskAded } from "./tasksSlice"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
+import { nanoid } from "@reduxjs/toolkit"
 const TaskForm = () => {
     const dispatch = useDispatch()
     const [input, setInput] = useState('')
@@ -11,7 +9,14 @@ const TaskForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(taskAded(input))
+        const oldStorage = localStorage.tasks ? JSON.parse(localStorage.getItem('tasks')) : []
+        oldStorage.unshift({
+            task: input,
+            completed: false,
+            id: nanoid()
+        })
         setInput('')
+        localStorage.setItem('tasks', JSON.stringify(oldStorage))
     }
 
 

@@ -1,7 +1,7 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
 
-const initialState = []
+const initialState = localStorage.tasks ? JSON.parse(localStorage.getItem('tasks')) : []
 
 const tasksSlice = createSlice({
     name: 'tasks',
@@ -28,7 +28,7 @@ const tasksSlice = createSlice({
                     }
                 }
             })
-            allTasksWithToggled.sort(function (a, b) {
+            allTasksWithToggled.sort((a, b) => {
                 let x = a.completed
                 let y = b.completed
                 if (!x && y) { return -1 }

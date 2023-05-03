@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const pickApi = createApi({
     name: 'pickApi',
+    reducerPath: 'pickApi',
     baseQuery: fetchBaseQuery({ baseUrl: `https://api.unsplash.com/photos/` }),
     endpoints: (builder) => ({
         getPick: builder.query({

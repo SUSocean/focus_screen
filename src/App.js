@@ -8,7 +8,6 @@ import { useGetPickQuery } from './api/pickApi';
 
 function App() {
   const { data } = useGetPickQuery()
-  console.log(data)
 
   let author = null
   let imgUrl = null

@@ -4,29 +4,34 @@ import { useState } from 'react';
 const Weather = () => {
     const [latitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
+
     const success = (pos) => {
         const crd = pos.coords;
         setLatitude(crd.latitude)
         setLongitude(crd.longitude)
     }
-    const handleError = (err) => {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
 
-    navigator.geolocation.getCurrentPosition(success, handleError);
+    navigator.geolocation.getCurrentPosition(success);
 
     const { data, isLoading, error } = useGetWeatherQuery({ latitude: latitude, longitude: longitude })
-    // console.log(data)
-    let content
 
+    let content
+    if (isLoading) {
+        content = <p className='weather'>Loading..</p>
+    }
+    if (error) {
+        content = <p className='weather-error'>couldn't get current location</p>
+    }
     if (data) {
         content =
             <div className='weather'>
-                <span>{Math.floor(data.main.temp) + '&#x2103;'}</span>
+                <div>
+                    <img alt={data.weather[0].main} src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
+                    <span>{Math.floor(data.main.temp) + '°C'}</span>
+                </div>
+                <p>{data.name}</p>
             </div>
     }
-
-
     return (
         content
     )

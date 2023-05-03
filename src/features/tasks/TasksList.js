@@ -1,12 +1,10 @@
-import { getTasks, taskAded } from "./tasksSlice"
+import { getTasks } from "./tasksSlice"
 import TaskForm from "./TaskForm"
-import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
+import { useSelector } from "react-redux"
 import SingleTask from "./SingleTask"
 import { nanoid } from "@reduxjs/toolkit"
 
 const TasksList = () => {
-    const dispatch = useDispatch()
     const tasks = useSelector(getTasks)
     let content
     if (tasks.length > 0) {
