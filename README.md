@@ -1,1 +1,1 @@
-work in progress
+The website is a perfect destination for nature lovers who want to stay focused and organized while enjoying the beauty of nature. Users are greeted with a random nature background upon arrival, along with the current time and weather information. The website also provides a todo list feature that allows users to add and save their tasks for the day. With a clean and minimalist design, the website promotes a distraction-free environment.
